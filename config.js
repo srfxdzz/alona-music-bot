@@ -29,11 +29,11 @@ module.exports = {
         Translate_Timeout: 10000,
         maxVol: 100,
         spotifyBridge: true,
-        volume: 75,
-        leaveOnEmpty: true,
-        leaveOnEmptyCooldown: 30000,
-        leaveOnEnd: true,
-        leaveOnEndCooldown: 30000,
+        volume: 95,
+        leaveOnEmpty: false,
+        leaveOnEmptyCooldown: 3000000,
+        leaveOnEnd: false,
+        leaveOnEndCooldown: 3000000,
         discordPlayer: {
             ytdlOptions: {
                 quality: 'highestaudio',

@@ -7,14 +7,18 @@ module.exports = {
     description:('Send QR or Scanner image based on target word'),
     async execute({ inter }) {
         const targetWords = ['qr', 'scanner'];
-        const content = inter.content.toLowerCase();
+        let content = inter?.options?.getString('text');  // Assuming text is a command option for input
+
+        if (!content) {
+            content = inter?.content?.toLowerCase();  // Fallback if text option is not present
+        }
 
         let responseImage;
         
-        if (targetWords.includes(content)) {
-            if (content === 'qr') {
+        if (content && targetWords.includes(content.toLowerCase())) {
+            if (content.toLowerCase() === 'qr') {
                 responseImage = 'path/to/qr_image.png';  // Replace with actual path to QR image
-            } else if (content === 'scanner') {
+            } else if (content.toLowerCase() === 'scanner') {
                 responseImage = 'path/to/scanner_image.png';  // Replace with actual path to scanner image
             }
 
